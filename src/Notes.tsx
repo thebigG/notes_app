@@ -3,6 +3,8 @@ import './App.css';
 import SubmitNoteButton from './Button';
 import NoteInput from './NoteInput';
 import Note from './Note';
+import React, { Component } from 'react';
+
 
 function Notes() {
   return (

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SubmitNoteButton extends Component {
   render() {
     return <button 
-            type="button" 
+            type="button"
             onClick={ () => {
             console.log("Write your note here");
 
