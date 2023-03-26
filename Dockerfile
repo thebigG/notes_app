@@ -28,6 +28,8 @@ WORKDIR /app
 # copy server binary from build stage
 COPY --from=builder /code/target/release/docker_sample docker_sample
 
+RUN apt-get install libsqlite3-dev
+
 # set user to non-root unless root is required for your app
 USER 1001
 

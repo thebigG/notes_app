@@ -6,12 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root') || document.body);
 
-fetch(`http://localhost:8080/hey`)
-.then(res => console.log(res.json()))
-.then((res: any) => {
-    // res is now an Actor
-});
-
 
 root.render(
   <React.StrictMode>

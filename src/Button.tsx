@@ -2,20 +2,16 @@ import React, { Component } from 'react';
 
 
 export interface ChildProps {
-  message: any;
+  callback: any;
+  note: string
 }
 
 class SubmitNoteButton extends Component<ChildProps>  {
-
-  // constructor(props: any) {
-  //   super(props);
-  //   // this.state = {value: props.prop_data};
-  // }
   render() {
     return <button 
             type="button"
             onClick={ () => {
-            this.props.message();
+            this.props.callback(this.props.note);
           }}
             className="button is-primary">
             Submit
