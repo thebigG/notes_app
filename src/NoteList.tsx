@@ -29,9 +29,23 @@ class NoteList extends Component{
       
 //   }
 
+
+
   state = {
     notes: new Array<NoteData>() 
  };
+
+ queryNotes = () => {
+    fetch('http://localhost:8080/get_notes')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        this.setState({
+            notes: data
+        });
+    });
+}
+
 
   handleSubmit = (e: any) => {
     const newNote = e.target.value;
