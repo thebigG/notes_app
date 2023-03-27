@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class NoteInput extends Component {
   render() {
-   return <textarea name="description" defaultValue="Enter your note here."  rows={4} cols={40} />
+   return <textarea name="note" defaultValue="Enter your note here."  rows={4} cols={40} />
   }
 }
 

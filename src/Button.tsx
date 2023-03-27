@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 
 
+// TODO:Don't think  I'll need this
 export interface ChildProps {
   callback: any;
   note: string
 }
 
-class SubmitNoteButton extends Component<ChildProps>  {
+class SubmitNoteButton extends Component  {
   render() {
     return <button 
-            type="button"
-            onClick={ () => {
-            this.props.callback(this.props.note);
-          }}
+            type="submit"
             className="button is-primary">
             Submit
           </button> 

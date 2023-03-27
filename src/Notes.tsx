@@ -5,52 +5,46 @@ import NoteInput from './NoteInput';
 import Note from './Note';
 import React, { Component } from 'react';
 import {useState} from 'react';
-
-// function customFunction() {
-//   fetch(`http://localhost:8080/new_note`,
-//    {method: 'POST', 
-//    body: JSON.stringify( {note:"New Note"})
-//    } ).then(res =>    console.log(res))
-//   .then((res: any) => {
-//     // res is now an Actor
-//   });
-// }
-
-function customFunction(new_note: string) {
-
-  const [message, setMessage] = useState('');
-
-  
-  const handleMessageChange = event => {
-    // 👇️ access textarea value
-    setMessage(event.target.value);
-    console.log(event.target.value);
-  };
-
-
-  fetch(`http://localhost:8080/new_note`,
-   {
-    method: 'POST', 
-   body: JSON.stringify({note: new_note}),
-   headers: {
-    'Content-Type': 'application/json'
-   }
-   }).then(res => res.json()).
-      then((json: any) => console.log(json));
-}
+import NoteList from './NoteList';
 
 
 function Notes() {
+
+  const [artists, setArtists] = useState([]);
+
+  function handleSubmit(e: any) {
+    console.log("handleSubmit");
+    // Prevent the browser from reloading the page
+    e.preventDefault();
+
+    // Read the form data
+    const form = e.target;
+    const formData = new FormData(form);
+
+    // You can pass formData as a fetch body directly:
+    fetch('http://localhost:8080/new_note', 
+    { method: form.method, 
+      body:  JSON.stringify({note: formData.get('note')}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    // // Or you can work with it as a plain object:
+    // const formJson = formData.get('note');
+    // console.log(formJson);
+  }
+
+
   return (
+    // <form method="post" onSubmit={handleSubmit}>
     <div className='container'>
       <div>
-        < NoteInput/>
-        <SubmitNoteButton callback={customFunction} note="New Note"/>
-      </div>
-      <div>
-        < Note/>
+        <NoteList/>
+        {/* <SubmitNoteButton/> */}
       </div>
     </div>
+    // </form>
 
   );
 }

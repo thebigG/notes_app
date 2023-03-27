@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 
-class Note extends Component {
+
+export interface ChildProps {
+  note: string
+  date: string
+}
+
+class Note extends Component<ChildProps> {
+
+
   render() {
    return <div className="message">
    <div className="message-header">
-     <p>{Date().toString()}</p>
+     <p>{this.props.date}</p>
      <button className="delete" aria-label="delete"></button>
    </div>
    <div className="message-body">
-    Example note
+    {this.props.note}
    </div>
  </div>
   }
