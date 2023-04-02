@@ -80,7 +80,9 @@ class NoteList extends Component{
         <form method="post" onSubmit={this.handleSubmit}> 
         <SubmitNoteButton/>
             < NoteInput/>
-                <ul>
+
+        </form>
+        <ul>
                     {
                     this.state.notes.map((new_note, index) => {
                         return <li key={index}>
@@ -89,8 +91,6 @@ class NoteList extends Component{
                     })
                     }
                 </ul>
-
-        </form>
     </div>
     </div>
     );
